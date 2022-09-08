@@ -3,17 +3,12 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema(
   {
     username: String,
+    email: String,
     password: String,
-    active: {
+    isAdmin: {
       type: Boolean,
-      default: true,
+      default: false,
     },
-    role: [
-      {
-        type: String,
-        default: "Employee",
-      },
-    ],
   },
   { timestamps: true }
 );

@@ -22,7 +22,8 @@ app.use(cookieParser());
 
 // @routes
 app.use("/", require("./routes/root"));
-app.get("/api/v1", (req, res) => res.json({ msg: "hey man!" }));
+app.use("/api/users", require("./routes/user.routes"));
+app.use("/api/threads", require("./routes/thread.routes"));
 app.all("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
